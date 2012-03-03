@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test form</title>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+		<meta charset='UTF-8'>
+		<script>
+			$(function() {
+				$('#id_city').change(function() {
+					var selectedValue = $('#id_city').val();
+					$.ajax({
+						dataType: 'json',
+						data: {'city': selectedValue},	
+					        success: function( data ) {
+							var options = ''
+							$.each(data, function(index) {
+								var code = data[index].fields['code'];
+								var name = data[index].fields['name'];
+								options += "<option value='"+code+"'>"+name+"</option>";
+							});
+							$('#id_hotels').html(options);
+					     } 
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			{{ form }}		
+		</form>
+	</body>
+</html>
