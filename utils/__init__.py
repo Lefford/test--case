@@ -13,8 +13,8 @@ def get_remote_content(url, username, password):
 		login_cred = base64.encodestring('{0}:{1}'.format(username, password)).replace('\n', '')
 		request.add_header('Authorization', 'Basic {0}'.format(login_cred))
 		
-		# we may be dealing with a huge mf
 		csv_file = urllib2.urlopen(request)
+		# we might be dealing with a file
 		for line in csv_file:
 			data+= line
 
@@ -32,7 +32,7 @@ def get_local_content(path):
 		cvs_file = open(path)
 		data = cvs_file.read() 
 		
-		# write the line in pieces a string, you dont know how big a file may be
+		# write the line to string
 		for line in data:
 			data+= line
 
