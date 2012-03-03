@@ -3,7 +3,7 @@ import re
 
 def get_remote_content(url, username, password):
 	""" 
-	import cvs remotley
+	import cvs remotely
 	"""	
 		
 	data = ''
