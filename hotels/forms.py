@@ -8,7 +8,7 @@ class HotelForm(forms.Form):
 
 		# get initial value
 		country_values = [(i.code, i.name) for i in City.objects.all()]
-		city = City.objects.get(code='ams')
+		city = City.objects.get(code='AMS')
 		hotel_values = [(i.code, i.name) for i in Hotel.objects.filter(city=city)]
 
 		# set field choices
