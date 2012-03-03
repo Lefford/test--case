@@ -5,8 +5,8 @@ from hotels.management.commands.importhotel import save_hotel
 from utils import get_remote_content
 
 URL= 'http://python-demo.maykin.nl/'
-USERNAME= 'python-demo'
-PASSWORD='claw30_bumps' 
+USERNAME= ''
+PASSWORD='' 
 
 @periodic_task(run_every=crontab())
 def import_city():
