@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage let's make a choice!</title>
+    <meta charset='UTF-8'>
+    <style type='text/css'>
+	#wrapper 
+			{
+				width: 950px;
+				margin: 0 auto;
+			}
+
+	#container	{
+
+				width: 100%;
+			}
+
+	.content-b	{
+				width: 350px;
+				margin: 0 auto;
+			}
+
+	div.content-b a {
+				display: block;
+				text-decoration: none;
+			}
+
+	.black		{
+				color: #000;
+			}
+
+	.red		{
+				color: #FF0000;
+			}		
+
+    </style>
+  <head>
+  <body>
+    <div id='container'>
+      <div id='wrapper'>
+        <div class='content-b'> 
+          <h1>Monkey see, monkey do!</h1>
+          <a href='{% url choice-form %}'><img src='http://www.maykinmedia.nl/media/images/maykinmedia_monkey.png' width='252' height=106'/>
+		<p><span class="black">Dont do it,</span><span class='red'> just click</span></p>
+	  </a>
+
+	</div>
+      </div>
+    </div>
+    </body>
+</html>
