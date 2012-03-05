@@ -4,10 +4,25 @@
 		<title>Test form</title>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
 		<meta charset='UTF-8'>
+		<style type='text/css'>
+			#container	{
+						width: 100%;
+					}
+
+			#wrapper	{
+						width: 950px;
+						margin: 0 auto;
+					}
+
+			.content-b 	{
+						width: 500px;
+						margin: 0 auto;
+					}
+		</style> 
 		<script>
 			$(function() {
-				$('#id_city').change(function() {
-					var selectedValue = $('#id_city').val();
+				$('#id_cities').change(function() {
+					var selectedValue = $('#id_cities').val();
 					$.ajax({
 						dataType: 'json',
 						data: {'city': selectedValue},	
@@ -26,8 +41,15 @@
 		</script>
 	</head>
 	<body>
-		<form>
-			{{ form }}		
-		</form>
+		<div id='container'>
+		  <div id='wrapper'>
+		    <div class='content-b'> 
+		      <form method="POST">{% csrf_token %}
+		        {{ form }}	
+		        <input type='submit' value='Submit'/>	
+		      </form>
+		    </div>
+                  </div>
+		</div>
 	</body>
 </html>
