@@ -1,0 +1,66 @@
+<!DOCCTYPE html>
+<html>
+  <head>
+	<title>Thank u for our choice</title>
+	<style type='text/css'>
+		#wrapper 
+				{
+					width: 950px; 
+					margin: 0 auto;
+				}
+
+		.content-b 
+				{
+					width: 350px; 
+					margin: 0 auto;
+				}
+
+		a.a-button
+				{
+	
+					display: block; 
+					text-decoration: none; 
+					padding: 5px 32px; 
+					border-radius: 10px; 
+					font-size: 1em; 
+					text-align: center; 
+					background-color: #009ACE;
+					color: #FFF;
+					float: left;
+					width: 100px;
+				 }
+
+		.margin-right-10 
+				{
+					margin-right: 10px;
+				}
+
+		ul 
+				{ 
+					list-style: none; 
+				}
+
+		.clear 
+				{ 
+					clear: both
+				}
+
+		#wrapper div.content-b h1 {font-size: 1.5em; text-align: center}	
+	</style>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div class='content-b'>
+	    <h1>U made the following choice</h1>
+	    <ul>
+		<li>City: {{ city_name }}</li>
+		<li>Hotel: {{ hotel_name}}</li>
+	    </ul>
+	    <div class='buttons'>
+		   <a class='a-button margin-right-10' href='{% url home %}'>Home</a> <a class='a-button' href='{% url choice-form %}'>New choice</a>
+		   <div class='clear'></div>
+	    </div>
+     </div>
+   </div>
+  </body>
+</html>
