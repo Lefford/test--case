@@ -5,9 +5,8 @@ def get_remote_content(url, username, password):
 	""" 
 	import cvs remotely
 	"""	
-		
-	data = ''
-
+	
+	data=''		
 	try:
 		request = urllib2.Request(url)
 		login_cred = base64.encodestring('{0}:{1}'.format(username, password)).replace('\n', '')
@@ -27,7 +26,8 @@ def get_local_content(path):
 	"""
 	Import csv locally
 	"""
-	data = '' 
+
+	data=''
 	try:
 		cvs_file = open(path)
 		data = cvs_file.read() 
