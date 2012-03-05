@@ -1,4 +1,4 @@
-import urllib2, base64, urllib2
+import urllib2, base64
 import re 
 
 def get_remote_content(url, username, password):
