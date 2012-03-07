@@ -22,5 +22,3 @@ class HotelForm(forms.Form):
 		self.fields['cities'] = forms.ChoiceField(choices=country_values)
 		self.fields['hotels'] = forms.ChoiceField(choices=hotel_values)
 		
-		self.fields['cities'].widget.attrs['class'] = 'chzn-select'
-		self.fields['hotels'].widget.attrs['class'] = 'chzn-select'
