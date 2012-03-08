@@ -25,13 +25,13 @@ class Command(BaseCommand):
 				raise CommandError('Insert URL username password')
 			city_data = get_remote_content(args[0], args[1], args[2])
 
-		save_city(city_data)
+		save_city(city_data['data'])
 
 def save_city(city_data):
 	"""
 	This function parsed the line and save a city in database.
 	"""
-# split the string on new line symbols 
+	# split the string on new line symbols 
 	city_data = city_data.split('\n')
 	temp_city = None
 	count_new_obj = 0
