@@ -24,8 +24,8 @@ class Command(BaseCommand):
 				raise CommandError('Insert URL username password')
 
 			city_data = get_remote_content(args[0], args[1], args[2])
-
-		save_hotel(city_data)
+		
+		save_hotel(city_data['data'])
 
 def save_hotel(data):
 	"""
