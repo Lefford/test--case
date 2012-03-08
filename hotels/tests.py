@@ -79,7 +79,6 @@ class MaykinTestCase(TestCase):
 				 HTTP_X_REQUEST_WITH='XMLHttpRequest')
 		
 		self.assertEqual(respons.status_code, 200)
-		#self.assertRedirects(response, '/other/login/?next=/sekrit/')
 
 	def submit_city_hotel_view(self):
 		"""
