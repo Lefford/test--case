@@ -3,56 +3,47 @@ import re
 
 def get_remote_content(url, username, password):
 	""" 
-	import cvs remotely
+	import csv remotely
 	"""	
 	
-	data=''		
+	data= None		
 	try:
 		request = urllib2.Request(url)
-		login_cred = base64.encodestring('{0}:{1}'.format(username, password)).replace('\n', '')
+		login_cred = base64.encodestring('{0}:{1}'.format(username, password))
 		request.add_header('Authorization', 'Basic {0}'.format(login_cred))
 		
 		csv_file = urllib2.urlopen(request)
-		# we might be dealing with a file
-		for line in csv_file:
-			data+= line
-
+		data = _format_data(csv_file)
+		
+		data.update({'response_code': csv_file.code})
 	except urllib2.URLError as e:
 		print 'Error message: {0}'.format(e)
 
 	return data
 
+def _format_data(a_file):
+	data = ''
+	for line in a_file:
+		data+= line
+
+	return {'data': data}
+ 
 def get_local_content(path):
 	"""
 	Import csv locally
 	"""
 
-	data=''
+	data=None
 	try:
-		cvs_file = open(path)
-		data = cvs_file.read() 
-		
-		# write the line to string
-		for line in data:
-			data+= line
-
-	except IOError:
-		pass
+		csv_file = open(path)
+		data = _format_data(csv_file)
+	except IOError as e:
+		print e
 
 	return data
 
 def clean_data(line, separator=';'):
 	"""
-	Parse line from cvs file
+	Get character between "<char>"
 	"""
-	
-	cleaned_data = []
-
-	# get value from sequence
-	for value in line.split(separator):
-		parsed_data = re.search(r'"(.+)"', value)
-		if parsed_data:
-			# get regex selection, name 
-			parsed_data = parsed_data.group(1)
-			cleaned_data.append(parsed_data)
-	return cleaned_data
+	return map(lambda x: re.search(r'"(.+)"', x).group(1), re.split(separator, line)) 
