@@ -120,8 +120,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
     'hotels',
     'south',
     'djcelery',
@@ -162,3 +160,5 @@ CELERY_REDIS_DB = 0
 
 CELERY_IMPORTS = ("tasks", )
 
+# use syncdb instead of migration == False
+SOUTH_TESTS_MIGRATE = True
